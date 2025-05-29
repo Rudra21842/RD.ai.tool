@@ -1,0 +1,974 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickTools - Useful Online Tools</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: white;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Tool Section */
+        .tool-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.5rem;
+        }
+        
+        .tool-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .input-group input, .input-group textarea, .input-group select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+        
+        .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
+            outline: none;
+            border-color: #6e8efb;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-container {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+        
+        .result-container.show {
+            display: block;
+        }
+        
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .result-content {
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        
+        /* Ad Space */
+        .ad-space {
+            background-color: #f0f0f0;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px dashed #ccc;
+        }
+        
+        .ad-space p {
+            color: #777;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-card i {
+            font-size: 2.5rem;
+            color: #6e8efb;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h3 {
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+        
+        .tool-card p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Tool Options */
+        .tool-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .option-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .option-group label {
+            font-size: 0.9rem;
+        }
+        
+        /* QR Code Display */
+        #qrcode {
+            margin: 1rem auto;
+            display: none;
+            max-width: 200px;
+        }
+        
+        #qrcode img {
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Password Strength Meter */
+        .password-strength {
+            height: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .strength-meter {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        
+        /* Premium Section */
+        .premium-section {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .premium-section h2 {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        
+        .premium-section p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .premium-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature i {
+            color: #ffcc00;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tool-options {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- QR Code library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Quick<span>Tools</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#premium">Premium</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="home" class="hero">
+            <h1>Powerful Online Tools at Your Fingertips</h1>
+            <p>Free online tools to make your life easier. No installation required - use directly in your browser!</p>
+            <a href="#tools" class="btn">Explore Tools</a>
+        </section>
+        
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement</p>
+            <!-- Replace this with your actual ad code -->
+            <div style="background:#ddd; height:90px; display:flex; align-items:center; justify-content:center;">
+                Ad Space (728x90)
+            </div>
+        </div>
+        
+        <!-- URL Shortener Tool -->
+        <section id="url-shortener" class="tool-section">
+            <h2 class="tool-title">URL Shortener</h2>
+            <div class="tool-container">
+                <div class="input-group">
+                    <label for="url-input">Enter your long URL</label>
+                    <input type="url" id="url-input" placeholder="https://example.com/very-long-url...">
+                </div>
+                <div class="input-group">
+                    <label for="custom-alias">Custom alias (optional)</label>
+                    <input type="text" id="custom-alias" placeholder="my-link">
+                </div>
+                <button id="shorten-btn" class="btn">Shorten URL</button>
+                
+                <div id="result-container" class="result-container">
+                    <p class="result-title">Your shortened URL:</p>
+                    <p id="result-content" class="result-content"></p>
+                    <button id="copy-btn" class="copy-btn">Copy</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- More Tools Grid - Now with working tools -->
+        <section id="tools">
+            <h2 class="tool-title">More Useful Tools</h2>
+            <div class="tools-grid">
+                <!-- Password Generator Tool -->
+                <div class="tool-card" onclick="showTool('password-generator')">
+                    <i class="fas fa-lock"></i>
+                    <h3>Password Generator</h3>
+                    <p>Create strong, secure passwords instantly</p>
+                </div>
+                
+                <!-- QR Code Generator Tool -->
+                <div class="tool-card" onclick="showTool('qr-generator')">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>QR Code Generator</h3>
+                    <p>Generate QR codes for any text or URL</p>
+                </div>
+                
+                <!-- Text Case Converter Tool -->
+                <div class="tool-card" onclick="showTool('text-converter')">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Text Converter</h3>
+                    <p>Convert text between different formats</p>
+                </div>
+                
+                <!-- Base64 Converter Tool -->
+                <div class="tool-card" onclick="showTool('base64-converter')">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Base64 Converter</h3>
+                    <p>Encode and decode Base64 strings</p>
+                </div>
+            </div>
+            
+            <!-- Password Generator Tool Section -->
+            <div id="password-generator" class="tool-section" style="display: none;">
+                <h2 class="tool-title">Password Generator</h2>
+                <div class="tool-container">
+                    <div class="tool-options">
+                        <div class="option-group">
+                            <label for="pw-length">Length:</label>
+                            <input type="number" id="pw-length" min="4" max="50" value="12">
+                        </div>
+                        <div class="option-group">
+                            <input type="checkbox" id="uppercase" checked>
+                            <label for="uppercase">Uppercase (A-Z)</label>
+                        </div>
+                        <div class="option-group">
+                            <input type="checkbox" id="lowercase" checked>
+                            <label for="lowercase">Lowercase (a-z)</label>
+                        </div>
+                        <div class="option-group">
+                            <input type="checkbox" id="numbers" checked>
+                            <label for="numbers">Numbers (0-9)</label>
+                        </div>
+                        <div class="option-group">
+                            <input type="checkbox" id="symbols">
+                            <label for="symbols">Symbols (!@#$%)</label>
+                        </div>
+                    </div>
+                    <button id="generate-pw" class="btn">Generate Password</button>
+                    
+                    <div id="pw-result-container" class="result-container">
+                        <p class="result-title">Your secure password:</p>
+                        <p id="pw-result-content" class="result-content"></p>
+                        <div class="password-strength">
+                            <div id="strength-meter" class="strength-meter"></div>
+                        </div>
+                        <button id="copy-pw-btn" class="copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QR Code Generator Tool Section -->
+            <div id="qr-generator" class="tool-section" style="display: none;">
+                <h2 class="tool-title">QR Code Generator</h2>
+                <div class="tool-container">
+                    <div class="input-group">
+                        <label for="qr-content">Enter text or URL</label>
+                        <textarea id="qr-content" rows="3" placeholder="Enter the content you want to encode in QR code"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <label for="qr-size">QR Code Size:</label>
+                        <select id="qr-size">
+                            <option value="100">Small (100x100)</option>
+                            <option value="200" selected>Medium (200x200)</option>
+                            <option value="300">Large (300x300)</option>
+                        </select>
+                    </div>
+                    <button id="generate-qr" class="btn">Generate QR Code</button>
+                    
+                    <div id="qr-result-container" class="result-container">
+                        <p class="result-title">Your QR Code:</p>
+                        <div id="qrcode"></div>
+                        <button id="download-qr" class="copy-btn" style="display: none;">
+                            <i class="fas fa-download"></i> Download QR Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Text Case Converter Tool Section -->
+            <div id="text-converter" class="tool-section" style="display: none;">
+                <h2 class="tool-title">Text Case Converter</h2>
+                <div class="tool-container">
+                    <div class="input-group">
+                        <label for="text-to-convert">Enter your text</label>
+                        <textarea id="text-to-convert" rows="4" placeholder="Enter text to convert"></textarea>
+                    </div>
+                    <div class="tool-options">
+                        <button id="to-upper" class="btn">UPPERCASE</button>
+                        <button id="to-lower" class="btn">lowercase</button>
+                        <button id="to-title" class="btn">Title Case</button>
+                        <button id="to-sentence" class="btn">Sentence case</button>
+                    </div>
+                    
+                    <div id="text-result-container" class="result-container">
+                        <p class="result-title">Converted Text:</p>
+                        <p id="text-result-content" class="result-content"></p>
+                        <button id="copy-text-btn" class="copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Base64 Converter Tool Section -->
+            <div id="base64-converter" class="tool-section" style="display: none;">
+                <h2 class="tool-title">Base64 Converter</h2>
+                <div class="tool-container">
+                    <div class="input-group">
+                        <label for="base64-input">Enter text to encode/decode</label>
+                        <textarea id="base64-input" rows="4" placeholder="Enter text or Base64 string"></textarea>
+                    </div>
+                    <div class="tool-options">
+                        <button id="encode-btn" class="btn">Encode to Base64</button>
+                        <button id="decode-btn" class="btn">Decode from Base64</button>
+                    </div>
+                    
+                    <div id="base64-result-container" class="result-container">
+                        <p class="result-title">Result:</p>
+                        <p id="base64-result-content" class="result-content"></p>
+                        <button id="copy-base64-btn" class="copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Premium Section -->
+        <section id="premium" class="premium-section">
+            <h2>Go Premium for More Power</h2>
+            <p>Upgrade to QuickTools Premium to unlock all features, remove ads, and get priority support.</p>
+            <button class="btn" style="margin-bottom: 1.5rem;">Get Premium Now</button>
+            
+            <div class="premium-features">
+                <div class="feature">
+                    <i class="fas fa-ad"></i>
+                    <h3>Ad-Free</h3>
+                    <p>Enjoy all tools without any advertisements</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Faster Processing</h3>
+                    <p>Priority processing for all your requests</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Advanced Analytics</h3>
+                    <p>Track your URL clicks and other metrics</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Premium Support</h3>
+                    <p>24/7 dedicated support for all your needs</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Another Ad Space -->
+        <div class="ad-space">
+            <p>Advertisement</p>
+            <!-- Replace this with your actual ad code -->
+            <div style="background:#ddd; height:250px; display:flex; align-items:center; justify-content:center;">
+                Ad Space (300x250)
+            </div>
+        </div>
+    </main>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>QuickTools</h3>
+                    <p>Your one-stop solution for all online tools. Free to use with premium options available.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#premium">Premium</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> support@quicktools.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 QuickTools. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // URL Shortener Functionality
+        document.getElementById('shorten-btn').addEventListener('click', function() {
+            const longUrl = document.getElementById('url-input').value.trim();
+            const customAlias = document.getElementById('custom-alias').value.trim();
+            
+            if (!longUrl) {
+                alert('Please enter a URL to shorten');
+                return;
+            }
+            
+            // In a real implementation, you would send this to your backend
+            // For demo purposes, we'll simulate a shortened URL
+            const domain = 'quicktools.com';
+            const randomString = Math.random().toString(36).substring(2, 8);
+            const shortPath = customAlias ? customAlias : randomString;
+            const shortUrl = `https://${domain}/${shortPath}`;
+            
+            // Display the result
+            document.getElementById('result-content').textContent = shortUrl;
+            document.getElementById('result-container').classList.add('show');
+            
+            // Track this conversion (in a real app, you would send this to your analytics)
+            console.log(`URL shortened: ${longUrl} → ${shortUrl}`);
+        });
+        
+        // Copy to Clipboard Functionality
+        document.getElementById('copy-btn').addEventListener('click', function() {
+            const resultContent = document.getElementById('result-content').textContent;
+            
+            navigator.clipboard.writeText(resultContent).then(function() {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            }.bind(this));
+        });
+        
+        // Show Tool Function
+        function showTool(toolId) {
+            // Hide all tool sections first
+            document.querySelectorAll('#tools .tool-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show the selected tool
+            document.getElementById(toolId).style.display = 'block';
+            
+            // Scroll to the tool
+            document.getElementById(toolId).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Password Generator Functionality
+        document.getElementById('generate-pw').addEventListener('click', function() {
+            const length = parseInt(document.getElementById('pw-length').value);
+            const hasUpper = document.getElementById('uppercase').checked;
+            const hasLower = document.getElementById('lowercase').checked;
+            const hasNumber = document.getElementById('numbers').checked;
+            const hasSymbol = document.getElementById('symbols').checked;
+            
+            if (length < 4 || length > 50) {
+                alert('Password length must be between 4 and 50 characters');
+                return;
+            }
+            
+            if (!hasUpper && !hasLower && !hasNumber && !hasSymbol) {
+                alert('Please select at least one character type');
+                return;
+            }
+            
+            const password = generatePassword(length, hasUpper, hasLower, hasNumber, hasSymbol);
+            document.getElementById('pw-result-content').textContent = password;
+            document.getElementById('pw-result-container').classList.add('show');
+            
+            // Update strength meter
+            updateStrengthMeter(password);
+        });
+        
+        function generatePassword(length, upper, lower, number, symbol) {
+            let chars = '';
+            const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const lowerChars = 'abcdefghijklmnopqrstuvwxyz';
+            const numberChars = '0123456789';
+            const symbolChars = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
+            
+            if (upper) chars += upperChars;
+            if (lower) chars += lowerChars;
+            if (number) chars += numberChars;
+            if (symbol) chars += symbolChars;
+            
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * chars.length);
+                password += chars[randomIndex];
+            }
+            
+            return password;
+        }
+        
+        function updateStrengthMeter(password) {
+            const meter = document.getElementById('strength-meter');
+            let strength = 0;
+            
+            // Length contributes up to 50% of strength
+            strength += Math.min(password.length / 20, 0.5);
+            
+            // Character variety contributes the rest
+            const hasUpper = /[A-Z]/.test(password);
+            const hasLower = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSymbol = /[^A-Za-z0-9]/.test(password);
+            
+            const varietyCount = [hasUpper, hasLower, hasNumber, hasSymbol].filter(Boolean).length;
+            strength += (varietyCount / 4) * 0.5;
+            
+            // Update meter
+            const percent = Math.min(Math.floor(strength * 100), 100);
+            meter.style.width = `${percent}%`;
+            
+            // Set color based on strength
+            if (percent < 30) {
+                meter.style.backgroundColor = '#ff4d4d'; // Weak (red)
+            } else if (percent < 70) {
+                meter.style.backgroundColor = '#ffcc00'; // Medium (yellow)
+            } else {
+                meter.style.backgroundColor = '#4CAF50'; // Strong (green)
+            }
+        }
+        
+        // Copy Password Functionality
+        document.getElementById('copy-pw-btn').addEventListener('click', function() {
+            const password = document.getElementById('pw-result-content').textContent;
+            
+            navigator.clipboard.writeText(password).then(function() {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            }.bind(this));
+        });
+        
+        // QR Code Generator Functionality
+        document.getElementById('generate-qr').addEventListener('click', function() {
+            const content = document.getElementById('qr-content').value.trim();
+            const size = parseInt(document.getElementById('qr-size').value);
+            
+            if (!content) {
+                alert('Please enter content for the QR code');
+                return;
+            }
+            
+            // Clear previous QR code
+            document.getElementById('qrcode').innerHTML = '';
+            
+            // Generate new QR code
+            new QRCode(document.getElementById('qrcode'), {
+                text: content,
+                width: size,
+                height: size,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            
+            // Show result container and download button
+            document.getElementById('qr-result-container').classList.add('show');
+            document.getElementById('download-qr').style.display = 'inline-block';
+        });
+        
+        // Download QR Code Functionality
+        document.getElementById('download-qr').addEventListener('click', function() {
+            const canvas = document.getElementById('qrcode').querySelector('canvas');
+            if (!canvas) return;
+            
+            const link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+        
+        // Text Case Converter Functionality
+        document.getElementById('to-upper').addEventListener('click', function() {
+            const text = document.getElementById('text-to-convert').value;
+            document.getElementById('text-result-content').textContent = text.toUpperCase();
+            document.getElementById('text-result-container').classList.add('show');
+        });
+        
+        document.getElementById('to-lower').addEventListener('click', function() {
+            const text = document.getElementById('text-to-convert').value;
+            document.getElementById('text-result-content').textContent = text.toLowerCase();
+            document.getElementById('text-result-container').classList.add('show');
+        });
+        
+        document.getElementById('to-title').addEventListener('click', function() {
+            const text = document.getElementById('text-to-convert').value;
+            document.getElementById('text-result-content').textContent = toTitleCase(text);
+            document.getElementById('text-result-container').classList.add('show');
+        });
+        
+        document.getElementById('to-sentence').addEventListener('click', function() {
+            const text = document.getElementById('text-to-convert').value;
+            document.getElementById('text-result-content').textContent = toSentenceCase(text);
+            document.getElementById('text-result-container').classList.add('show');
+        });
+        
+        function toTitleCase(str) {
+            return str.toLowerCase().split(' ').map(word => {
+                return word.charAt(0).toUpperCase() + word.slice(1);
+            }).join(' ');
+        }
+        
+        function toSentenceCase(str) {
+            return str.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, function(c) {
+                return c.toUpperCase();
+            });
+        }
+        
+        // Copy Text Functionality
+        document.getElementById('copy-text-btn').addEventListener('click', function() {
+            const text = document.getElementById('text-result-content').textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            }.bind(this));
+        });
+        
+        // Base64 Converter Functionality
+        document.getElementById('encode-btn').addEventListener('click', function() {
+            const text = document.getElementById('base64-input').value;
+            const encoded = btoa(unescape(encodeURIComponent(text)));
+            document.getElementById('base64-result-content').textContent = encoded;
+            document.getElementById('base64-result-container').classList.add('show');
+        });
+        
+        document.getElementById('decode-btn').addEventListener('click', function() {
+            const text = document.getElementById('base64-input').value;
+            try {
+                const decoded = decodeURIComponent(escape(atob(text)));
+                document.getElementById('base64-result-content').textContent = decoded;
+                document.getElementById('base64-result-container').classList.add('show');
+            } catch (e) {
+                alert('Invalid Base64 input');
+            }
+        });
+        
+        // Copy Base64 Functionality
+        document.getElementById('copy-base64-btn').addEventListener('click', function() {
+            const text = document.getElementById('base64-result-content').textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            }.bind(this));
+        });
+        
+        // Monetization Ideas:
+        // 1. Ad spaces (as shown in the template)
+        // 2. Premium subscriptions for advanced features
+        // 3. Affiliate links for related products
+        // 4. Sponsored tools or integrations
+        // 5. API access for businesses
+        
+        // To make this a real business:
+        // 1. Implement backend functionality for each tool
+        // 2. Add user accounts and premium features
+        // 3. Set up analytics to track usage
+        // 4. Add more valuable tools over time
+        // 5. Implement SEO best practices to drive traffic
+    </script>
+</body>
+</html>
